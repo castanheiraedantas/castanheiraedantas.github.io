@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Castanheira & Dantas — Wheel-Thrown Ceramics, Portugal</title>
+  <meta name="description" content="Portuguese ceramic manufacturer. Wheel-thrown pottery, handmade in Portugal since 1991. Interior decoration, garden pottery and tableware for European and international markets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --terracotta: #7D3E1E;
+      --terracotta-light: #F5EDE3;
+      --terracotta-mid: #B5622E;
+      --dark: #1C0F07;
+      --mid: #5C3320;
+      --warm-grey: #9A8880;
+      --cream: #FAF6F2;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── LANGUAGE TOGGLE ── */
+    #lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      gap: 4px;
+      background: rgba(250,246,242,0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(125,62,30,0.2);
+      border-radius: 20px;
+      padding: 4px;
+    }
+
+    .lang-btn {
+      padding: 4px 12px;
+      border: none;
+      border-radius: 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+      color: var(--warm-grey);
+    }
+
+    .lang-btn.active {
+      background: var(--terracotta);
+      color: white;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    .hero-left {
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--terracotta);
+    }
+
+    .hero-left::after {
+      content: 'CD';
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 220px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracotta-mid);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--terracotta);
+      margin-bottom: 32px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      max-width: 380px;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    .hero-cta svg {
+      transition: transform 0.3s;
+    }
+
+    .hero-cta:hover svg {
+      transform: translateX(4px);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: #2a1506;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      transition: transform 8s ease;
+    }
+
+    .hero-right:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      background: rgba(28,15,7,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(125,62,30,0.4);
+      padding: 16px 20px;
+    }
+
+    .hero-badge p {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta-mid);
+      margin-bottom: 4px;
+    }
+
+    .hero-badge strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 20px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+
+    nav.scrolled {
+      background: rgba(250,246,242,0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 80px;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--warm-grey);
+    }
+
+    .nav-links a:hover {
+      color: var(--terracotta-mid) !important;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 80px;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .stat-box {
+      background: var(--terracotta-light);
+      padding: 24px 20px;
+    }
+
+    .stat-box:first-child {
+      background: var(--terracotta);
+    }
+
+    .stat-box:first-child .stat-num,
+    .stat-box:first-child .stat-label {
+      color: white;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 60%;
+      height: 60%;
+      border: 2px solid var(--terracotta-light);
+      z-index: -1;
+    }
+
+    /* ── CRAFT ── */
+    #craft {
+      background: var(--dark);
+      color: white;
+    }
+
+    .craft-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .craft-item {
+      background: rgba(255,255,255,0.04);
+      padding: 40px 32px;
+      border-top: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .craft-item:hover {
+      background: rgba(125,62,30,0.2);
+      border-top-color: var(--terracotta);
+    }
+
+    .craft-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .craft-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .craft-item p {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    #gallery .gallery-header {
+      padding: 0 80px;
+      margin-bottom: 48px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 300px 300px;
+      gap: 3px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: #2a1506;
+      position: relative;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: all 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      bottom: 0; left: 0;
+      right: 0;
+      padding: 20px;
+      background: linear-gradient(transparent, rgba(28,15,7,0.7));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay p {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── CLIENTS ── */
+    #clients {
+      background: var(--terracotta-light);
+      text-align: center;
+      padding: 80px;
+    }
+
+    .clients-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 40px;
+    }
+
+    .clients-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .client-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--mid);
+      letter-spacing: 1px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .client-name:hover {
+      opacity: 1;
+    }
+
+    .client-sep {
+      width: 1px;
+      height: 40px;
+      background: var(--terracotta);
+      opacity: 0.3;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--dark);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    #contact .section-title {
+      color: white;
+    }
+
+    #contact .section-title em {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 40px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item-icon {
+      font-size: 16px;
+      margin-top: 2px;
+      width: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--terracotta-mid);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .contact-item-value a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item-value a:hover {
+      color: var(--terracotta-mid);
+    }
+
+    .contact-map {
+      position: relative;
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      opacity: 0.7;
+      filter: grayscale(30%);
+    }
+
+    .contact-map::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 80px;
+      height: 80px;
+      border-left: 2px solid var(--terracotta);
+      border-top: 2px solid var(--terracotta);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f0804;
+      padding: 32px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.5px;
+    }
+
+    footer .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vh; }
+      .hero-left { padding: 120px 32px 60px; }
+      #about { grid-template-columns: 1fr; padding: 60px 32px; }
+      .craft-grid { grid-template-columns: 1fr; }
+      section { padding: 60px 32px; }
+      nav { padding: 20px 32px; }
+      nav.scrolled { padding: 14px 32px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item.tall { grid-row: span 1; }
+      #gallery .gallery-header { padding: 0 32px; }
+      #contact { grid-template-columns: 1fr; padding: 60px 32px; }
+      .clients-logos { gap: 40px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 32px; }
+      #lang-toggle { top: 14px; right: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Toggle -->
+  <div id="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">C&amp;D</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-en="About" data-pt="Sobre Nós">About</a></li>
+      <li><a href="#craft" data-en="Our Craft" data-pt="O Nosso Trabalho">Our Craft</a></li>
+      <li><a href="#gallery" data-en="Collections" data-pt="Colecções">Collections</a></li>
+      <li><a href="#contact" data-en="Contact" data-pt="Contacto">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow" data-en="Est. 1991 · Vila Verde, Portugal" data-pt="Fund. 1991 · Vila Verde, Portugal">Est. 1991 · Vila Verde, Portugal</p>
+      <h1 class="hero-title">Castanheira<br><em>&amp; Dantas</em></h1>
+      <p class="hero-subtitle" data-en="Wheel-Thrown Ceramics" data-pt="Cerâmica ao Torno">Wheel-Thrown Ceramics</p>
+      <div class="hero-divider"></div>
+      <p class="hero-desc" data-en="One of the world's leading wheel-thrown pottery studios. Every piece shaped entirely by hand by our master potters — from delicate orchid vases to statement jars over one metre tall." data-pt="Um dos maiores estúdios de cerâmica ao torno do mundo. Cada peça moldada inteiramente à mão pelos nossos mestres oleiros — desde vasos delicados para orquídeas até jarras monumentais com mais de um metro de altura.">One of the world's leading wheel-thrown pottery studios. Every piece shaped entirely by hand by our master potters — from delicate orchid vases to statement jars over one metre tall.</p>
+      <a href="#contact" class="hero-cta">
+        <span data-en="Get in Touch" data-pt="Contacte-nos">Get in Touch</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=900&q=80" alt="Wheel-thrown pottery">
+      <div class="hero-badge">
+        <p data-en="Handmade in" data-pt="Feito em">Handmade in</p>
+        <strong>Portugal 🇵🇹</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-text fade-in">
+      <p class="section-eyebrow" data-en="Our Story" data-pt="A Nossa História">Our Story</p>
+      <h2 class="section-title" data-en="Three decades of <em>craft & conviction</em>" data-pt="Três décadas de <em>tradição e dedicação</em>">Three decades of <em>craft & conviction</em></h2>
+      <p data-en="Castanheira & Dantas was founded in 1991 with a single conviction: that great ceramics can only be made by great hands. Today, led by the second generation of the founding family, that conviction remains at the heart of everything we do." data-pt="A Castanheira & Dantas foi fundada em 1991 com uma convicção: que a grande cerâmica só pode ser feita por grandes mãos. Hoje, liderada pela segunda geração da família fundadora, essa convicção permanece no centro de tudo o que fazemos.">Castanheira & Dantas was founded in 1991 with a single conviction: that great ceramics can only be made by great hands. Today, led by the second generation of the founding family, that conviction remains at the heart of everything we do.</p>
+      <p data-en="Our workshop is home to craftspeople who have been with us for over 20 years — and in several cases, whose children have followed in their footsteps. This continuity of knowledge, skill and passion is what makes our ceramics impossible to replicate." data-pt="A nossa oficina acolhe artesãos que trabalham connosco há mais de 20 anos — e em vários casos, cujos filhos seguiram os seus passos. Esta continuidade de conhecimento, habilidade e paixão é o que torna a nossa cerâmica impossível de replicar.">Our workshop is home to craftspeople who have been with us for over 20 years — and in several cases, whose children have followed in their footsteps. This continuity of knowledge, skill and passion is what makes our ceramics impossible to replicate.</p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">35+</div>
+          <div class="stat-label" data-en="Years of History" data-pt="Anos de História">Years of History</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="color:var(--terracotta);">2nd</div>
+          <div class="stat-label" data-en="Generation Family" data-pt="Geração Familiar">Generation Family</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="color:var(--terracotta);">20+</div>
+          <div class="stat-label" data-en="Years, Avg. Tenure" data-pt="Anos, Permanência Média">Years, Avg. Tenure</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" style="color:var(--terracotta);">EU</div>
+          <div class="stat-label" data-en="Origin Certified" data-pt="Origem Certificada">Origin Certified</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-image fade-in">
+      <img src="https://images.unsplash.com/photo-1493106641515-5b78c0ea6bd7?w=700&q=80" alt="Ceramic workshop Portugal">
+    </div>
+  </section>
+
+  <!-- Craft -->
+  <section id="craft">
+    <p class="section-eyebrow" data-en="What We Do" data-pt="O Que Fazemos">What We Do</p>
+    <h2 class="section-title" style="color:white;" data-en="Made entirely <em>by hand</em>" data-pt="Feito inteiramente <em>à mão</em>">Made entirely <em>by hand</em></h2>
+    <div class="craft-grid">
+      <div class="craft-item fade-in">
+        <div class="craft-icon">🏺</div>
+        <h3 data-en="Interior Decoration" data-pt="Decoração Interior">Interior Decoration</h3>
+        <p data-en="Vases, bowls, jugs and decorative objects. Organic forms and rich glazes that bring warmth to any interior. Available in sizes from 15 cm to over 1 metre." data-pt="Vasos, taças, jarras e objectos decorativos. Formas orgânicas e vidrados ricos que trazem calor a qualquer interior. Disponíveis em tamanhos de 15 cm a mais de 1 metro.">Vases, bowls, jugs and decorative objects. Organic forms and rich glazes that bring warmth to any interior. Available in sizes from 15 cm to over 1 metre.</p>
+      </div>
+      <div class="craft-item fade-in">
+        <div class="craft-icon">🌿</div>
+        <h3 data-en="Garden Pottery" data-pt="Cerâmica de Jardim">Garden Pottery</h3>
+        <p data-en="Outdoor pots, planters and large format vessels. High-fired and frost-resistant. Trusted by leading European garden distributors for over three decades." data-pt="Vasos exteriores, floreiras e peças de grande formato. Cozedura a alta temperatura e resistentes ao gelo. De confiança dos principais distribuidores europeus de jardim há mais de três décadas.">Outdoor pots, planters and large format vessels. High-fired and frost-resistant. Trusted by leading European garden distributors for over three decades.</p>
+      </div>
+      <div class="craft-item fade-in">
+        <div class="craft-icon">🍽</div>
+        <h3 data-en="Tableware" data-pt="Louça de Mesa">Tableware</h3>
+        <p data-en="Plates, bowls, cups and serving pieces. Each piece wheel-thrown by our master potters — functional beauty for everyday use and special occasions alike." data-pt="Pratos, tigelas, chávenas e peças de serviço. Cada peça torneada ao torno pelos nossos mestres oleiros — beleza funcional para uso quotidiano e ocasiões especiais.">Plates, bowls, cups and serving pieces. Each piece wheel-thrown by our master potters — functional beauty for everyday use and special occasions alike.</p>
+      </div>
+      <div class="craft-item fade-in">
+        <div class="craft-icon">🎨</div>
+        <h3 data-en="Private Label" data-pt="Marca Própria">Private Label</h3>
+        <p data-en="We develop exclusive collections for design brands and retailers. From concept to production, we work closely with your team to bring your vision to life." data-pt="Desenvolvemos colecções exclusivas para marcas de design e retalhistas. Do conceito à produção, trabalhamos em estreita colaboração com a sua equipa.">We develop exclusive collections for design brands and retailers. From concept to production, we work closely with your team to bring your vision to life.</p>
+      </div>
+      <div class="craft-item fade-in">
+        <div class="craft-icon">⚡</div>
+        <h3 data-en="Fast Lead Times" data-pt="Prazos Rápidos">Fast Lead Times</h3>
+        <p data-en="4–6 weeks from approved sample. European logistics — no intercontinental delays or supply chain disruption. Flexible MOQ for small drops and large runs alike." data-pt="4–6 semanas a partir da amostra aprovada. Logística europeia — sem atrasos intercontinentais. MOQ flexível para pequenas e grandes encomendas.">4–6 weeks from approved sample. European logistics — no intercontinental delays or supply chain disruption. Flexible MOQ for small drops and large runs alike.</p>
+      </div>
+      <div class="craft-item fade-in">
+        <div class="craft-icon">🌱</div>
+        <h3 data-en="EU Origin Certified" data-pt="Origem UE Certificada">EU Origin Certified</h3>
+        <p data-en="Full European origin certification available. Low carbon footprint. A 'Made in Portugal' story your customers will love — and your sustainability reports will thank you for." data-pt="Certificação de origem europeia disponível. Baixa pegada de carbono. Uma história 'Made in Portugal' que os seus clientes vão adorar.">Full European origin certification available. Low carbon footprint. A 'Made in Portugal' story your customers will love — and your sustainability reports will thank you for.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="gallery-header fade-in">
+      <p class="section-eyebrow" data-en="Our Collections" data-pt="As Nossas Colecções">Our Collections</p>
+      <h2 class="section-title" data-en="The <em>Terra Collection</em>" data-pt="A <em>Colecção Terra</em>">The <em>Terra Collection</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Terra Collection vases">
+        <div class="overlay"><p data-en="Terra Collection · CD-100" data-pt="Colecção Terra · CD-100">Terra Collection · CD-100</p></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&q=80" alt="Wheel throwing">
+        <div class="overlay"><p data-en="Handmade · Wheel-Thrown" data-pt="Feito à Mão · Ao Torno">Handmade · Wheel-Thrown</p></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80" alt="High temperature glaze">
+        <div class="overlay"><p data-en="High-Temperature Glaze" data-pt="Vidrado a Alta Temperatura">High-Temperature Glaze</p></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=500&q=80" alt="Interior decoration">
+        <div class="overlay"><p data-en="Interior Decoration" data-pt="Decoração Interior">Interior Decoration</p></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=500&q=80" alt="Garden pottery">
+        <div class="overlay"><p data-en="Garden Pottery" data-pt="Cerâmica de Jardim">Garden Pottery</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section id="clients">
+    <p class="clients-label" data-en="Trusted by Europe's Leading Brands" data-pt="Escolhidos pelas Principais Marcas Europeias">Trusted by Europe's Leading Brands</p>
+    <div class="clients-logos">
+      <span class="client-name">Edelman BV</span>
+      <div class="client-sep"></div>
+      <span class="client-name">NV Serax</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="fade-in">
+      <p class="section-eyebrow" data-en="Get in Touch" data-pt="Contacte-nos">Get in Touch</p>
+      <h2 class="section-title" data-en="Let's create <em>something beautiful</em>" data-pt="Vamos criar <em>algo belo</em>">Let's create <em>something beautiful</em></h2>
+      <p class="contact-desc" data-en="Whether you're looking for a private label collection, a wholesale partnership, or simply want to know more about our work — we'd love to hear from you." data-pt="Quer esteja à procura de uma colecção de marca própria, uma parceria grossista, ou simplesmente queira saber mais sobre o nosso trabalho — adoraríamos ouvir de si.">Whether you're looking for a private label collection, a wholesale partnership, or simply want to know more about our work — we'd love to hear from you.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">✉</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value"><a href="mailto:info@castanheiraedantas.pt">info@castanheiraedantas.pt</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label" data-en="Phone" data-pt="Telefone">Phone</div>
+            <div class="contact-item-value">+351 253 841 463</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div>
+            <div class="contact-item-label" data-en="Mobile" data-pt="Telemóvel">Mobile</div>
+            <div class="contact-item-value">+351 966 481 686</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label" data-en="Address" data-pt="Morada">Address</div>
+            <div class="contact-item-value">Rua Cruz de Lombão 59, Cervaes<br>4730-106 Vila Verde, Portugal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map fade-in">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022!2d-8.4!3d41.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVmlsYSBWZXJkZQ!5e0!3m2!1sen!2spt!4v1"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-brand">Castanheira &amp; Dantas, Lda</span>
+    <p data-en="© 2025 · Wheel-Thrown Ceramics · Vila Verde, Portugal" data-pt="© 2025 · Cerâmica ao Torno · Vila Verde, Portugal">© 2025 · Wheel-Thrown Ceramics · Vila Verde, Portugal</p>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 120);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Language toggle
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) {
+          if (el.querySelector('em') || text.includes('<em>')) {
+            el.innerHTML = text;
+          } else {
+            el.textContent = text;
+          }
+        }
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
+
+</body>
+</html>
